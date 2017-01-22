@@ -1,23 +1,22 @@
 // *** tree chart
-// \ horizontal and vertical generator
-// \ zoom behavior
+// \ radial generator
+
 d3.json('../../data/sandbox/tweets.json', function(error, data) { dataViz(data.tweets) })
 
 function dataViz(incData) {
 
 	var nestedTweets = d3.nest().key(function(el) { return el.user }).entries(incData);
-	// puts the nestedTweets array inside a 'root' object that acts as top-level parent
 	var packableTweets = {id: "All Tweets", values: nestedTweets};
 
 	var depthScale = d3.scale.category20([0,1,2]);
 
 	var treeChart = d3.layout.tree();
-	treeChart.size([500,480]).children( function(d) { return d.values });
+	treeChart.size([200,200]).children( function(d) { return d.values });
 
-	// ** creates diagonal generator with default settings (= curved lines between points)
-	var linkGenerator = d3.svg.diagonal();
-	// * turn dendogram on it's side - turn around links - below: horizontal
-	linkGenerator.projection(function (d) {return [d.y, d.x]})
+	// ** creates radial generator
+	// / radial() uses threeChart.size to determine the maximum radius and is drawn out from (0,0)
+	var linkGenerator= d3.svg.diagonal.radial()
+		.projection(function(d) { return [d.y, d.x / 180 * Math.PI] })
 
 	// ** create groups for node circle and label
 	d3.select('svg')
@@ -28,8 +27,8 @@ function dataViz(incData) {
 		.enter()
 		.append('g')	// append <g> so we can label them
 		.attr('class', 'node')
-		// * turn dendogram on it's side - swap x and y axis below - below: horizontal
-		.attr('transform', function(d) { return 'translate(' + d.y + ',' + d.x + ')' }) // computes XY coordinates of each node
+		// * adjust position of nodes for radial chart
+		.attr('transform', function(d) { return 'rotate(' + (d.x - 90) + ')translate(' + d.y + ')' }) // computes XY coordinates of each node
 
 	// * create node circle
 	d3.selectAll('g.node')
