@@ -1,0 +1,9 @@
+path.domain {
+	fill: none;
+	stroke: black;
+}
+
+line {
+	shape-rendering: crispEdges;
+	stroke: lightgrey;
+}

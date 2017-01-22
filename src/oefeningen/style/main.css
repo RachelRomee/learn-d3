@@ -1,0 +1,58 @@
+.container {
+    padding: 3em 0em;
+}
+line {
+    shape-rendering: crispEdges;
+    stroke: #dcdcdc;
+}
+path.domain {
+    fill: none;
+    stroke: #bbb;
+}
+svg {
+    border: 1px lightgray solid;
+}
+
+
+/*  fase-3 . worldcup.js  */
+text {
+    font-size: 10px;
+}
+g>text.active {
+    font-size: 20px;
+}
+
+circle {
+    fill: pink;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+circle.active {
+    fill: #ffc66d;
+}
+
+circle.inactive {
+    fill: #9ad7a2;
+}
+
+/* modal.html and worldcup.js */
+/* \ we can use position and z-index because it's an html DOM element */
+#modal {
+    position: absolute;
+    left: 500px;
+    top: 400px;
+    z-index: 1;
+    background: white;
+    border: 1px black solid;
+    box-shadow: 10px 10px 5px #888888;
+}
+tr {
+    border: 1px gray solid;
+}
+td {
+    font-size: 10px;
+}
+td.data {
+    font-weight: 900;
+}

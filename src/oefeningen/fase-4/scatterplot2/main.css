@@ -1,0 +1,19 @@
+
+/* applies to all lines */
+line {
+	shape-rendering: crispEdges;
+	stroke: rgba(252, 130, 211, 1);
+}
+/* fill of the whole chart area */
+path.domain {
+	fill: none;
+	stroke: black;
+}
+/* change color of x-axis ticklines */
+#xAxisG line {
+	stroke: rgba(130, 252, 197, 1);
+}
+/* change color of x-axis label text */
+#xAxisG text {
+	fill: rgb(224, 50, 118)
+}

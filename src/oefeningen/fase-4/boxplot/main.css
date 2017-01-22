@@ -1,0 +1,18 @@
+path.domain {
+	fill: none;
+	stroke: rgb(37, 152, 246);
+}
+
+line {
+	shape-rendering: crispEdges;
+	stroke: rgba(37, 152, 246, 0.2);
+}
+
+g.box {
+	fill: rgba(255, 184, 78, 0.6);
+}
+
+.bar {
+	stroke: rgba(255, 184, 78, 1);
+	stroke-width: 3px;
+}
